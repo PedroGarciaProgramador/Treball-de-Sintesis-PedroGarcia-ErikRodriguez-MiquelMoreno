@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="c-estil.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <title>Contacte</title>
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="imatges-c/logo1.png" alt="logo">
+      <nav>
+          <ul class="nav__links">
+              <li> <a href="index.html">Inici</a></li>
+              <li> <a href="productes.html">Productes</a></li>
+              <li> <a href="serveis.html">Serveis</a></li>
+              <li> <a href="aboutus.html">About Us</a></li>                    
+          </ul>
+      </nav>
+      <a class="cta "href="contacte.html"><button>Contacte</button></a>
+  </header>
+    <div class="contact-section">
+      <h1>Contacte</h1>
+      <div class="border"></div>
+      <form class="contact-form" method="post" action="https://sheetdb.io/api/v1/0cr6vam6jjui1" id="sheetdb-form">
+        <input name="data[nom]" type="text" class="contact-form-text" placeholder="Nom" required>
+        <input name="data[cognoms]" type="text" class="contact-form-text" placeholder="Cognoms" required>
+        <input name="data[email]" type="email" class="contact-form-text" placeholder="E-mail" required>
+        <input name="data[telefon]" type="text" class="contact-form-text" placeholder="Telèfon" required>
+        <textarea name="data[missatge]" class="contact-form-text" placeholder="Missatge"></textarea>
+        <input type="submit" class="contact-form-btn" value="Envia" >
+      </form>
+      <script>
+        var form = document.getElementById('sheetdb-form');
+        form.addEventListener("submit", e => {
+          e.preventDefault();
+          fetch(form.action, {
+              method : "POST",
+              body: new FormData(document.getElementById("sheetdb-form")),
+          }).then(
+              response => response.json()
+          ).then((html) => {
+            // you can put any JS code here
+            alert("El formulari s'ha enviat amb éxit")
+          });
+        });
+      </script>
+    </div>
+    <section class="footer">
+      <div class="social">
+          <a href="https://youtube.com/channel/UCa7M4FjSaBbk6XwMod0FMmw" target="_blank"><i class="fab fa-youtube"></i></a>
+          <a href="https://twitter.com/TecnoPedralbes" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/in/tecno-pedralbes-8ba45123b"target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <ul class="list">
+          <li>
+              <a href="index.html">Inici</a>
+          </li>
+          <li>
+              <a href="privacy.html">Protecció de les dades</a>
+          </li>
+          <li>
+              <a href="legal.html">Avís Legal</a>
+          </li>
+      </ul>
+      <p class="copyright">
+          TecnoPedralbes S.L
+      </p>
+  </section>
+  </body>
+</html>
